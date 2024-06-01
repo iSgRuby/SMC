@@ -2,10 +2,10 @@
 <Schema Namespace="cafeteria_ESIME_CulhuacanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="CATEGORIAS">
     <Key>
-      <PropertyRef Name="Categoria_ID" />
+      <PropertyRef Name="Id_Categoria" />
     </Key>
-    <Property Name="Categoria_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre_Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Categoria" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="MENUS_DEL_DIA">
     <Key>
@@ -17,92 +17,44 @@
   </EntityType>
   <EntityType Name="PRODUCTOS">
     <Key>
-      <PropertyRef Name="ProductoID" />
+      <PropertyRef Name="Id_Producto" />
     </Key>
-    <Property Name="ProductoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="Categoria_ID" Type="int" Nullable="false" />
-    <Property Name="Subcategoria_ID" Type="int" />
-    <Property Name="Disponibilidad" Type="bit" />
+    <Property Name="Id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+    <Property Name="Id_Subcategoria" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="4" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="SUBCATEGORIAS">
     <Key>
-      <PropertyRef Name="Subcategoria_ID" />
+      <PropertyRef Name="Id_Subcategoria" />
     </Key>
-    <Property Name="Subcategoria_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre_Subcategoria" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Categoria_ID" Type="int" Nullable="false" />
+    <Property Name="Id_Subcategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Subcategoria" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Id_Categoria" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__PRODUCTOS__Categ__5FB337D6">
-    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
-    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
-      </Principal>
-      <Dependent Role="PRODUCTOS">
-        <PropertyRef Name="Categoria_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PRODUCTOS__Subca__60A75C0F">
-    <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="0..1" />
+  <Association Name="FK__PRODUCTOS__Id_Su__4D94879B">
+    <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="1" />
     <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SUBCATEGORIAS">
-        <PropertyRef Name="Subcategoria_ID" />
+        <PropertyRef Name="Id_Subcategoria" />
       </Principal>
       <Dependent Role="PRODUCTOS">
-        <PropertyRef Name="Subcategoria_ID" />
+        <PropertyRef Name="Id_Subcategoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SUBCATEGO__Categ__5CD6CB2B">
+  <Association Name="FK__SUBCATEGO__Id_Ca__4AB81AF0">
     <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
     <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
+        <PropertyRef Name="Id_Categoria" />
       </Principal>
       <Dependent Role="SUBCATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PRODUCTOS_CATEGORIAS">
-    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
-    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
-      </Principal>
-      <Dependent Role="PRODUCTOS">
-        <PropertyRef Name="Categoria_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PRODUCTOS_SUBCATEGORIAS">
-    <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="0..1" />
-    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SUBCATEGORIAS">
-        <PropertyRef Name="Subcategoria_ID" />
-      </Principal>
-      <Dependent Role="PRODUCTOS">
-        <PropertyRef Name="Subcategoria_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SUBCATEGORIAS_CATEGORIAS">
-    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
-    <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
-      </Principal>
-      <Dependent Role="SUBCATEGORIAS">
-        <PropertyRef Name="Categoria_ID" />
+        <PropertyRef Name="Id_Categoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -111,27 +63,11 @@
     <EntitySet Name="MENUS_DEL_DIA" EntityType="Self.MENUS_DEL_DIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SUBCATEGORIAS" EntityType="Self.SUBCATEGORIAS" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__PRODUCTOS__Categ__5FB337D6" Association="Self.FK__PRODUCTOS__Categ__5FB337D6">
-      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
-      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PRODUCTOS__Subca__60A75C0F" Association="Self.FK__PRODUCTOS__Subca__60A75C0F">
+    <AssociationSet Name="FK__PRODUCTOS__Id_Su__4D94879B" Association="Self.FK__PRODUCTOS__Id_Su__4D94879B">
       <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
       <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
     </AssociationSet>
-    <AssociationSet Name="FK__SUBCATEGO__Categ__5CD6CB2B" Association="Self.FK__SUBCATEGO__Categ__5CD6CB2B">
-      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
-      <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PRODUCTOS_CATEGORIAS" Association="Self.FK_PRODUCTOS_CATEGORIAS">
-      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
-      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PRODUCTOS_SUBCATEGORIAS" Association="Self.FK_PRODUCTOS_SUBCATEGORIAS">
-      <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
-      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SUBCATEGORIAS_CATEGORIAS" Association="Self.FK_SUBCATEGORIAS_CATEGORIAS">
+    <AssociationSet Name="FK__SUBCATEGO__Id_Ca__4AB81AF0" Association="Self.FK__SUBCATEGO__Id_Ca__4AB81AF0">
       <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
       <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
     </AssociationSet>

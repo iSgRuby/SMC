@@ -5,7 +5,28 @@
       <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.CATEGORIAS">
         <MappingFragment StoreEntitySet="CATEGORIAS">
           <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
-          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+          <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTOS">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.PRODUCTOS">
+        <MappingFragment StoreEntitySet="PRODUCTOS">
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Id_Subcategoria" ColumnName="Id_Subcategoria" />
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBCATEGORIAS">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS">
+        <MappingFragment StoreEntitySet="SUBCATEGORIAS">
+          <ScalarProperty Name="Id_Categoria" ColumnName="Id_Categoria" />
+          <ScalarProperty Name="Nombre_Subcategoria" ColumnName="Nombre_Subcategoria" />
+          <ScalarProperty Name="Id_Subcategoria" ColumnName="Id_Subcategoria" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -15,27 +36,6 @@
           <ScalarProperty Name="Precio" ColumnName="Precio" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PRODUCTOS">
-      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.PRODUCTOS">
-        <MappingFragment StoreEntitySet="PRODUCTOS">
-          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
-          <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
-          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
-          <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SUBCATEGORIAS">
-      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS">
-        <MappingFragment StoreEntitySet="SUBCATEGORIAS">
-          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
-          <ScalarProperty Name="Nombre_Subcategoria" ColumnName="Nombre_Subcategoria" />
-          <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

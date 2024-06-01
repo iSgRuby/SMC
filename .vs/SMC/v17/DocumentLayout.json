@@ -9,14 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|c:\\github\\smc\\sistemamenucafeteria\\modulos\\iuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|solutionrelative:sistemamenucafeteria\\modulos\\iuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|C:\\GitHub\\SMC\\negocio\\entidades\\clsproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|solutionrelative:negocio\\entidades\\clsproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|C:\\GitHub\\SMC\\negocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|solutionrelative:negocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,27 +30,15 @@
               "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-01T03:55:05.793Z",
+              "WhenOpened": "2024-06-01T20:13:01.534Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 355,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\Negocio\\Producto.cs",
-              "RelativeDocumentMoniker": "Negocio\\Producto.cs",
-              "ToolTip": "C:\\GitHub\\SMC\\Negocio\\Producto.cs",
-              "RelativeToolTip": "Negocio\\Producto.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAYwD4AAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T09:46:40.602Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -67,22 +47,10 @@
               "RelativeDocumentMoniker": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
               "ToolTip": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
               "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACkAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T09:39:33.065Z",
+              "WhenOpened": "2024-06-01T20:12:29.671Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsPRODUCTOS.cs",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\Negocio\\Entidades\\clsPRODUCTOS.cs",
-              "RelativeDocumentMoniker": "Negocio\\Entidades\\clsPRODUCTOS.cs",
-              "ToolTip": "C:\\GitHub\\SMC\\Negocio\\Entidades\\clsPRODUCTOS.cs",
-              "RelativeToolTip": "Negocio\\Entidades\\clsPRODUCTOS.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T14:49:14.711Z"
             }
           ]
         }

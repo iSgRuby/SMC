@@ -32,7 +32,7 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
 
         public List<clsMENUS_DEL_DIA> GetListaMenu()
         {
-            List<MENUS_DEL_DIA>  list = context.MENUS_DEL_DIA.Select(x => x).ToList();
+            List<MENUS_DEL_DIA>  list = context.MENUS_DEL_DIA.Select(x => x).ToList(); 
             List<clsMENUS_DEL_DIA> newList = new List<clsMENUS_DEL_DIA>();
             foreach (MENUS_DEL_DIA menu in list)
             {

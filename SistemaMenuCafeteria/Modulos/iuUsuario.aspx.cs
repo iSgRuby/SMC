@@ -14,7 +14,6 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
 
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private const int CategoriesPerPage = 3;
         private MenuDelDia _objMenuDelDia = new MenuDelDia();
         private Categoria _objCategoria = new Categoria();
         private Subcategoria _objSubcategoria = new Subcategoria();
@@ -38,11 +37,12 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         {
             if (!IsPostBack)
             {
-                Categories = GetCategories();
-                BindMenusDelDia();
-                rptCategories.DataSource = _objCategoria.GetListaCategorias();
+                Categories = GetSubCategories(_objSubcategoria.GetListaSubcategorias());
+                rptCategories.DataSource = _objCategoria.GetListaCategorias(); ;
                 rptCategories.DataBind();
+
                 BindCategories();
+                BindMenusDelDia();
             }
         }
 
@@ -61,10 +61,15 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             }
 
             // Permitir el desplazamiento hacia la derecha solo si CurrentPage es 0
-            if (CurrentPage == 0)
+            if (CurrentPage == (_objSubcategoria.GetListaSubcategorias().Count() / 4) - 1)
             {
                 CurrentPage++;
                 RightScrollEnabled = false; // Deshabilitar el desplazamiento hacia la derecha después del primer clic
+                BindCategories();
+            }
+            else
+            {
+                CurrentPage++;
                 BindCategories();
             }
         }
@@ -103,24 +108,13 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         }
         private void BindCategories()
         {
+            int CategoriesPerPage = 4;
             var pagedCategories = Categories.GetRange(CurrentPage * CategoriesPerPage, Math.Min(CategoriesPerPage, Categories.Count - (CurrentPage * CategoriesPerPage)));
             CategoryRepeater.DataSource = pagedCategories;
             CategoryRepeater.DataBind();
         }
 
-        private List<Category> GetCategories()
-        {
-            // Simular datos de categorías
-            return new List<Category>
-            {
-                new Category { Text = "Menús del día", NavigateUrl = "#menuDelDiaContainer" },
-                new Category { Text = "Comidas", NavigateUrl = "#comidas" },
-                new Category { Text = "Bebidas calientes", NavigateUrl = "#bebidasCalientes" },
-                new Category { Text = "Bebidas frías", NavigateUrl = "#bebidasFrias" },
-                new Category { Text = "Dulces", NavigateUrl = "#dulces" },
-                new Category { Text = "Snacks", NavigateUrl = "#snacks" }
-            };
-        }
+
 
         protected void txtBusqueda_OnTextChanged(object sender, EventArgs e)
         {
@@ -135,7 +129,7 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 clsCATEGORIAS categoria = (clsCATEGORIAS)e.Item.DataItem;
-                categoria.SUBCATEGORIAS = _objSubcategoria.GetListaSubcategorias(categoria.Categoria_ID);
+                categoria.SUBCATEGORIAS = _objSubcategoria.GetListaSubcategoriasByIdCategoria(categoria.Id_Categoria);
                 Repeater rptSubcategories = (Repeater)e.Item.FindControl("rptSubcategories");
                 rptSubcategories.DataSource = categoria.SUBCATEGORIAS;
                 rptSubcategories.DataBind();
@@ -147,7 +141,7 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 clsSUBCATEGORIAS subcategoria = (clsSUBCATEGORIAS)e.Item.DataItem;
-                subcategoria.PRODUCTOS = _objProducto.GetListaProductosByIdSubCategoria(subcategoria.Subcategoria_ID);
+                subcategoria.PRODUCTOS = _objProducto.GetListaProductosByIdSubCategoria(subcategoria.Id_Subcategoria);
                 Repeater rptProducts = (Repeater)e.Item.FindControl("rptProducts");
                 ViewState["Productos"] = subcategoria.PRODUCTOS;
                 rptProducts.DataSource = ViewState["Productos"] as List<clsPRODUCTOS>;
@@ -178,6 +172,23 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
                 }
 
             }
+        }
+
+        private List<Category> GetSubCategories(List<clsSUBCATEGORIAS> clsCategorias)
+        {
+            // Simular datos de categorías
+            List<Category> categorias = new List<Category>();
+            foreach (clsSUBCATEGORIAS categoria in clsCategorias)
+            {
+                categorias.Add(
+                    new Category()
+                    {
+                        Text = categoria.Nombre_Subcategoria,
+                        NavigateUrl = "#" + categoria.Id_Categoria
+                    }
+                );
+            }
+            return categorias;
         }
     }
 

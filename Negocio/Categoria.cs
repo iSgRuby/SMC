@@ -19,10 +19,10 @@ namespace Negocio
 
         public clsCATEGORIAS GetCategoria(int idCategoria)
         {
-            CATEGORIAS categoria = context.CATEGORIAS.Where(x => x.Categoria_ID == idCategoria).FirstOrDefault();
+            CATEGORIAS categoria = context.CATEGORIAS.Where(x => x.Id_Categoria == idCategoria).FirstOrDefault();
             return new clsCATEGORIAS() 
             { 
-                Categoria_ID = categoria.Categoria_ID,
+                Id_Categoria = categoria.Id_Categoria,
                 Nombre_Categoria = categoria.Nombre_Categoria
             };
              
@@ -38,7 +38,7 @@ namespace Negocio
                 listaNueva.Add(
                     new clsCATEGORIAS()
                     {
-                        Categoria_ID = categoria.Categoria_ID,
+                        Id_Categoria = categoria.Id_Categoria,
                         Nombre_Categoria = categoria.Nombre_Categoria,
                     }    
                 );

@@ -27,7 +27,7 @@ namespace Negocio
 
         public void EliminarProducto(PRODUCTOS producto)
         {
-            PRODUCTOS productoAEliminar = context.PRODUCTOS.Where(x => x.ProductoID == producto.ProductoID).FirstOrDefault();
+            PRODUCTOS productoAEliminar = context.PRODUCTOS.Where(x => x.Id_Producto == producto.Id_Producto).FirstOrDefault();
             if (productoAEliminar != null)
             {
                 context.PRODUCTOS.Remove(productoAEliminar);
@@ -38,17 +38,16 @@ namespace Negocio
         public List<clsPRODUCTOS> GetListaProductosByIdSubCategoria(int idSubcategoria)
         {
             List<clsPRODUCTOS> newlistaProductos = new List<clsPRODUCTOS>();
-            List<PRODUCTOS> listaProductos = context.PRODUCTOS.Where(x => x.Subcategoria_ID == idSubcategoria).ToList();
+            List<PRODUCTOS> listaProductos = context.PRODUCTOS.Where(x => x.Id_Subcategoria == idSubcategoria).ToList();
             foreach (PRODUCTOS producto in listaProductos)
             {
                 newlistaProductos.Add(
                     new clsPRODUCTOS()
                     {
-                        ProductoID = producto.ProductoID,
+                        Id_Producto = producto.Id_Producto,
                         Precio = producto.Precio,
                         Nombre = producto.Nombre,
-                        Categoria_ID = producto.Categoria_ID,
-                        Subcategoria_ID = producto.Subcategoria_ID,
+                        Id_Subcategoria = producto.Id_Subcategoria,
                         Disponibilidad = producto.Disponibilidad
                     }    
                 );
@@ -65,11 +64,10 @@ namespace Negocio
                 newlistaProductos.Add(
                     new clsPRODUCTOS()
                     {
-                        ProductoID = producto.ProductoID,
+                        Id_Producto = producto.Id_Producto,
                         Precio = producto.Precio,
                         Nombre = producto.Nombre,
-                        Categoria_ID = producto.Categoria_ID,
-                        Subcategoria_ID = producto.Subcategoria_ID,
+                        Id_Subcategoria = producto.Id_Subcategoria,
                         Disponibilidad = producto.Disponibilidad
                     }
                 );
@@ -78,7 +76,7 @@ namespace Negocio
         }
         public PRODUCTOS GetProducto(int idProducto)
         {
-            PRODUCTOS productoObtenido = context.PRODUCTOS.Where(x => x.ProductoID == idProducto).FirstOrDefault();
+            PRODUCTOS productoObtenido = context.PRODUCTOS.Where(x => x.Id_Producto == idProducto).FirstOrDefault();
             return productoObtenido;
         }
     }

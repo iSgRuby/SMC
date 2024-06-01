@@ -264,13 +264,13 @@
         </div>
 
         <%-- Título menús del día --%>
-        <div class="menu-header">MENÚS DEL DÍA</div>
+        <div class="menu-header" id="menuDelDiaContainer">MENÚS DEL DÍA</div>
     </div>
     <%-- Termina la imagen --%>
 
 
     <!-- Contenido de MENÚS DEL DÍA -->
-    <div class="row justify-content-center mt-3" id="menuDelDiaContainer">
+    <div class="row justify-content-center mt-3">
 
         <%-- Menú del día 1 --%>
         <div class="col-md-5 col-12 mb-3">
@@ -318,7 +318,7 @@
         <!-- Listado de productos -->
         <asp:Repeater ID="rptCategories" runat="server" OnItemDataBound="rptCategories_ItemDataBound">
             <ItemTemplate>
-                <div class="col-md-12" id="<%# Eval("Categoria_ID") %>">
+                <div class="col-md-12" id="<%# Eval("Id_Categoria") %>">
                     <h2 class="comidas"><%# Eval("Nombre_Categoria") %></h2>
                     <asp:Repeater ID="rptSubcategories" runat="server" OnItemDataBound="rptSubcategories_ItemDataBound">
                         <ItemTemplate>
