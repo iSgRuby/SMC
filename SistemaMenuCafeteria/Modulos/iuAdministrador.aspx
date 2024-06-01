@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Scripts" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="NombrePag" runat="server" >
+<asp:Content ID="Content3" ContentPlaceHolderID="NombrePag" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="Server">
     <br />
@@ -45,31 +45,18 @@
                 <asp:TextBox runat="server" ID="categoryInput" placeholder="Categoría" />
                 <asp:TextBox runat="server" placeholder="Subcategoria" />
                 <asp:TextBox runat="server" placeholder="Precio" />
-                <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click"/>
+                <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click" />
             </div>
         </div>
 
         <asp:GridView runat="server" ID="gvProductos" Visible="true"
-            OnRowDeleting="gvProductos_RowDeleting" >
+            OnRowDeleting="gvProductos_RowDeleting" OnRowDataBound="gvProductos_RowDataBound" CellSpacing="100">
             <Columns>
-                <!--asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Label runat="server" ID="lblIdProducto" Text='<%Bind("ProductoID")%>'/>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="lbl" Text='<%Bind("Nombre")%>'/>
+                        <asp:Button CssClass=" btn btn-danger" runat="server" ID="lblPrecio" Text="Eliminar" />
                     </ItemTemplate>
                 </asp:TemplateField>
-
-                
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Label runat="server" ID="lblPrecio" Text='<%Bind("")%>'/>
-                    </ItemTemplate>
-                </asp:TemplateField>-->
             </Columns>
         </asp:GridView>
     </div>

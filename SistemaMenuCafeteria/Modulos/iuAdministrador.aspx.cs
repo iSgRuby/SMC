@@ -35,5 +35,10 @@ namespace SistemaMenuCafeteria.Modulos
         {
 
         }
+
+        protected void gvProductos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
     }
 }
