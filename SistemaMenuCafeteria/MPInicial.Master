@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MPInicial.master.cs" Inherits="SistemaMenuCafeteria.MPInicial" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Agregar titulo cabeceras -->
+    <title>
+        <asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+
+    <script src="Scripts/fontawesome/all.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.7.1.js"></script>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/all.css" rel="stylesheet" />
+
+
+
+    <!-- Agregar scripts a la cabecera -->
+    <asp:ContentPlaceHolder ID="Scripts" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-6 col-sm-10 offset-lg-4 offset-md-3 offset-sm-1 text-center">
+                    <h1>
+                        <asp:ContentPlaceHolder ID="NombrePag" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <!-- Agregar contenido a la pagina -->
+                    <asp:ContentPlaceHolder ID="Body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

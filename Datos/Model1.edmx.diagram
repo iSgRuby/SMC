@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8fd6b62d51954b0c97296bc9993da342" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" Width="1.5" PointX="3" PointY="6.625" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Categ__5FB337D6" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK__SUBCATEGO__Categ__5CD6CB2B" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_CATEGORIAS" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK_SUBCATEGORIAS_CATEGORIAS" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Subca__60A75C0F" />
+        <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_SUBCATEGORIAS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

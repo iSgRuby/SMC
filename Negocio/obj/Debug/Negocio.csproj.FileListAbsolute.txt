@@ -1,0 +1,15 @@
+C:\GitHub\SMC\Negocio\bin\Debug\Negocio.dll.config
+C:\GitHub\SMC\Negocio\bin\Debug\Negocio.dll
+C:\GitHub\SMC\Negocio\bin\Debug\Negocio.pdb
+C:\GitHub\SMC\Negocio\bin\Debug\Datos.dll
+C:\GitHub\SMC\Negocio\bin\Debug\EntityFramework.dll
+C:\GitHub\SMC\Negocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\SMC\Negocio\bin\Debug\Datos.pdb
+C:\GitHub\SMC\Negocio\bin\Debug\Datos.dll.config
+C:\GitHub\SMC\Negocio\bin\Debug\EntityFramework.xml
+C:\GitHub\SMC\Negocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\SMC\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\GitHub\SMC\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\GitHub\SMC\Negocio\obj\Debug\Negocio.csproj.Up2Date
+C:\GitHub\SMC\Negocio\obj\Debug\Negocio.dll
+C:\GitHub\SMC\Negocio\obj\Debug\Negocio.pdb

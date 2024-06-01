@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cafeteria_ESIME_CulhuacanModelStoreContainer" CdmEntityContainer="cafeteria_ESIME_CulhuacanEntities">
+    <EntitySetMapping Name="CATEGORIAS">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.CATEGORIAS">
+        <MappingFragment StoreEntitySet="CATEGORIAS">
+          <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENUS_DEL_DIA">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA">
+        <MappingFragment StoreEntitySet="MENUS_DEL_DIA">
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTOS">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.PRODUCTOS">
+        <MappingFragment StoreEntitySet="PRODUCTOS">
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBCATEGORIAS">
+      <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS">
+        <MappingFragment StoreEntitySet="SUBCATEGORIAS">
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+          <ScalarProperty Name="Nombre_Subcategoria" ColumnName="Nombre_Subcategoria" />
+          <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

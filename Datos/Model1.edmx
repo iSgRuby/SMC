@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="cafeteria_ESIME_CulhuacanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="Categoria_ID" />
+          </Key>
+          <Property Name="Categoria_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MENUS_DEL_DIA">
+          <Key>
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Menu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="ProductoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Categoria_ID" Type="int" Nullable="false" />
+          <Property Name="Subcategoria_ID" Type="int" />
+          <Property Name="Disponibilidad" Type="bit" />
+        </EntityType>
+        <EntityType Name="SUBCATEGORIAS">
+          <Key>
+            <PropertyRef Name="Subcategoria_ID" />
+          </Key>
+          <Property Name="Subcategoria_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Subcategoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Categoria_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__PRODUCTOS__Categ__5FB337D6">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTOS__Subca__60A75C0F">
+          <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="0..1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIAS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUBCATEGO__Categ__5CD6CB2B">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTOS_CATEGORIAS">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTOS_SUBCATEGORIAS">
+          <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="0..1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIAS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBCATEGORIAS_CATEGORIAS">
+          <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
+          <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cafeteria_ESIME_CulhuacanModelStoreContainer">
+          <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENUS_DEL_DIA" EntityType="Self.MENUS_DEL_DIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUBCATEGORIAS" EntityType="Self.SUBCATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PRODUCTOS__Categ__5FB337D6" Association="Self.FK__PRODUCTOS__Categ__5FB337D6">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTOS__Subca__60A75C0F" Association="Self.FK__PRODUCTOS__Subca__60A75C0F">
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUBCATEGO__Categ__5CD6CB2B" Association="Self.FK__SUBCATEGO__Categ__5CD6CB2B">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTOS_CATEGORIAS" Association="Self.FK_PRODUCTOS_CATEGORIAS">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTOS_SUBCATEGORIAS" Association="Self.FK_PRODUCTOS_SUBCATEGORIAS">
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBCATEGORIAS_CATEGORIAS" Association="Self.FK_SUBCATEGORIAS_CATEGORIAS">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cafeteria_ESIME_CulhuacanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="cafeteria_ESIME_CulhuacanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORIAS" EntityType="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" />
+          <EntitySet Name="MENUS_DEL_DIA" EntityType="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA" />
+          <EntitySet Name="PRODUCTOS" EntityType="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" />
+          <EntitySet Name="SUBCATEGORIAS" EntityType="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" />
+          <AssociationSet Name="FK__PRODUCTOS__Categ__5FB337D6" Association="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Categ__5FB337D6">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUBCATEGO__Categ__5CD6CB2B" Association="cafeteria_ESIME_CulhuacanModel.FK__SUBCATEGO__Categ__5CD6CB2B">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTOS_CATEGORIAS" Association="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_CATEGORIAS">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBCATEGORIAS_CATEGORIAS" Association="cafeteria_ESIME_CulhuacanModel.FK_SUBCATEGORIAS_CATEGORIAS">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTOS__Subca__60A75C0F" Association="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Subca__60A75C0F">
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTOS_SUBCATEGORIAS" Association="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_SUBCATEGORIAS">
+            <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="Categoria_ID" />
+          </Key>
+          <Property Name="Categoria_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Categoria" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Categ__5FB337D6" FromRole="CATEGORIAS" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="SUBCATEGORIAS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__SUBCATEGO__Categ__5CD6CB2B" FromRole="CATEGORIAS" ToRole="SUBCATEGORIAS" />
+          <NavigationProperty Name="PRODUCTOS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="SUBCATEGORIAS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_SUBCATEGORIAS_CATEGORIAS" FromRole="CATEGORIAS" ToRole="SUBCATEGORIAS" />
+        </EntityType>
+        <EntityType Name="MENUS_DEL_DIA">
+          <Key>
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Menu_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="ProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Categoria_ID" Type="Int32" Nullable="false" />
+          <Property Name="Subcategoria_ID" Type="Int32" />
+          <Property Name="Disponibilidad" Type="Boolean" />
+          <NavigationProperty Name="CATEGORIAS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Categ__5FB337D6" FromRole="PRODUCTOS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="CATEGORIAS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_CATEGORIAS" FromRole="PRODUCTOS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="SUBCATEGORIAS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Subca__60A75C0F" FromRole="PRODUCTOS" ToRole="SUBCATEGORIAS" />
+          <NavigationProperty Name="SUBCATEGORIAS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_SUBCATEGORIAS" FromRole="PRODUCTOS" ToRole="SUBCATEGORIAS" />
+        </EntityType>
+        <EntityType Name="SUBCATEGORIAS">
+          <Key>
+            <PropertyRef Name="Subcategoria_ID" />
+          </Key>
+          <Property Name="Subcategoria_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Subcategoria" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Categoria_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CATEGORIAS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__SUBCATEGO__Categ__5CD6CB2B" FromRole="SUBCATEGORIAS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="CATEGORIAS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_SUBCATEGORIAS_CATEGORIAS" FromRole="SUBCATEGORIAS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Subca__60A75C0F" FromRole="SUBCATEGORIAS" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="PRODUCTOS1" Relationship="cafeteria_ESIME_CulhuacanModel.FK_PRODUCTOS_SUBCATEGORIAS" FromRole="SUBCATEGORIAS" ToRole="PRODUCTOS" />
+        </EntityType>
+        <Association Name="FK__PRODUCTOS__Categ__5FB337D6">
+          <End Type="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" Role="CATEGORIAS" Multiplicity="1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" Role="PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUBCATEGO__Categ__5CD6CB2B">
+          <End Type="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" Role="CATEGORIAS" Multiplicity="1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" Role="SUBCATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTOS_CATEGORIAS">
+          <End Type="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" Role="CATEGORIAS" Multiplicity="1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" Role="PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBCATEGORIAS_CATEGORIAS">
+          <End Type="cafeteria_ESIME_CulhuacanModel.CATEGORIAS" Role="CATEGORIAS" Multiplicity="1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" Role="SUBCATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIAS">
+              <PropertyRef Name="Categoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTOS__Subca__60A75C0F">
+          <End Type="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" Role="SUBCATEGORIAS" Multiplicity="0..1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" Role="PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIAS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTOS_SUBCATEGORIAS">
+          <End Type="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS" Role="SUBCATEGORIAS" Multiplicity="0..1" />
+          <End Type="cafeteria_ESIME_CulhuacanModel.PRODUCTOS" Role="PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIAS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="Subcategoria_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cafeteria_ESIME_CulhuacanModelStoreContainer" CdmEntityContainer="cafeteria_ESIME_CulhuacanEntities">
+          <EntitySetMapping Name="CATEGORIAS">
+            <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.CATEGORIAS">
+              <MappingFragment StoreEntitySet="CATEGORIAS">
+                <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
+                <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENUS_DEL_DIA">
+            <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA">
+              <MappingFragment StoreEntitySet="MENUS_DEL_DIA">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTOS">
+            <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.PRODUCTOS">
+              <MappingFragment StoreEntitySet="PRODUCTOS">
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
+                <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUBCATEGORIAS">
+            <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.SUBCATEGORIAS">
+              <MappingFragment StoreEntitySet="SUBCATEGORIAS">
+                <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+                <ScalarProperty Name="Nombre_Subcategoria" ColumnName="Nombre_Subcategoria" />
+                <ScalarProperty Name="Subcategoria_ID" ColumnName="Subcategoria_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

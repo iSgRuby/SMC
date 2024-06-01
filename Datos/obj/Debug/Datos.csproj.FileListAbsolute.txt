@@ -1,0 +1,12 @@
+C:\GitHub\SMC\Datos\bin\Debug\Datos.dll.config
+C:\GitHub\SMC\Datos\bin\Debug\Datos.dll
+C:\GitHub\SMC\Datos\bin\Debug\Datos.pdb
+C:\GitHub\SMC\Datos\bin\Debug\EntityFramework.dll
+C:\GitHub\SMC\Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\SMC\Datos\bin\Debug\EntityFramework.xml
+C:\GitHub\SMC\Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\SMC\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\GitHub\SMC\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\GitHub\SMC\Datos\obj\Debug\Datos.csproj.Up2Date
+C:\GitHub\SMC\Datos\obj\Debug\Datos.dll
+C:\GitHub\SMC\Datos\obj\Debug\Datos.pdb
