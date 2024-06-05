@@ -234,7 +234,7 @@
             <div class="category-container">
                 <asp:Repeater ID="CategoryRepeater" runat="server">
                     <ItemTemplate>
-                        <asp:HyperLink CssClass="btn btn-toolbar btn-outline-dark" ID="CategoryLink" runat="server" NavigateUrl='<%# Eval("NavigateUrl") %>'><%# Eval("Text")%> </asp:HyperLink>
+                        <asp:HyperLink CssClass=" btn btn-lg btn-toolbar btn-outline-dark" ID="CategoryLink" runat="server" NavigateUrl='<%# Eval("NavigateUrl") %>'><%# Eval("Text")%> </asp:HyperLink>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -248,7 +248,9 @@
         <%-- Bóton búsqueda --%>
         <div class="offset-10 col-2">
             <div class="float-md-right search-container">
-                <button type="button" class="btn btn-outline-primary fas fa-search" onclick="mostrarBusqueda()" />
+                <button type="button" class="btn btn-outline-primary" onclick="mostrarBusqueda()">
+                    <i class="fas fa-search"></i>
+                </button>
 
                 <%-- Script botón búsqueda --%>
                 <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -329,7 +331,7 @@
                                         <div class="producto-info">
                                             <div class="producto-header">
                                                 <h4><%# Eval("Nombre") %></h4>
-                                                <p>Descripción del producto.</p>
+                                                <p><%# Eval("Descripcion") %></p>
                                             </div>
                                             <div class="precio-container col-lg-1 col-md-1 col-sm-1">
                                                 <span class="precio-signo">$</span>

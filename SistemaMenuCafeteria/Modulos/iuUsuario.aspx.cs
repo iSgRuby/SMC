@@ -37,8 +37,9 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         {
             if (!IsPostBack)
             {
-                Categories = GetSubCategories(_objSubcategoria.GetListaSubcategorias());
-                rptCategories.DataSource = _objCategoria.GetListaCategorias(); ;
+                List<clsCATEGORIAS> listaCategorias = _objCategoria.GetListaCategorias();
+                Categories = GetCategorias(listaCategorias);
+                rptCategories.DataSource = listaCategorias;
                 rptCategories.DataBind();
 
                 BindCategories();
@@ -61,10 +62,10 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             }
 
             // Permitir el desplazamiento hacia la derecha solo si CurrentPage es 0
-            if (CurrentPage == (_objSubcategoria.GetListaSubcategorias().Count() / 4) - 1)
+            if (CurrentPage + 1 >= ((_objCategoria.GetListaCategorias().Count() + 1) / 3) - 1)
             {
                 CurrentPage++;
-                RightScrollEnabled = false; // Deshabilitar el desplazamiento hacia la derecha después del primer clic
+                RightScrollEnabled = false;
                 BindCategories();
             }
             else
@@ -108,7 +109,7 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         }
         private void BindCategories()
         {
-            int CategoriesPerPage = 4;
+            int CategoriesPerPage = 3;
             var pagedCategories = Categories.GetRange(CurrentPage * CategoriesPerPage, Math.Min(CategoriesPerPage, Categories.Count - (CurrentPage * CategoriesPerPage)));
             CategoryRepeater.DataSource = pagedCategories;
             CategoryRepeater.DataBind();
@@ -174,16 +175,18 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             }
         }
 
-        private List<Category> GetSubCategories(List<clsSUBCATEGORIAS> clsCategorias)
+        private List<Category> GetCategorias(List<clsCATEGORIAS> clsCategorias)
         {
-            // Simular datos de categorías
-            List<Category> categorias = new List<Category>();
-            foreach (clsSUBCATEGORIAS categoria in clsCategorias)
+            List<Category> categorias = new List<Category>
+            {
+                new Category { Text = "Menus del dia", NavigateUrl = "#menuDelDiaContainer" }
+            };
+            foreach (clsCATEGORIAS categoria in clsCategorias)
             {
                 categorias.Add(
                     new Category()
                     {
-                        Text = categoria.Nombre_Subcategoria,
+                        Text = categoria.Nombre_Categoria,
                         NavigateUrl = "#" + categoria.Id_Categoria
                     }
                 );

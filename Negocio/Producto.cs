@@ -18,19 +18,38 @@ namespace Negocio
             context = new cafeteria_ESIME_CulhuacanEntities();
         }
 
-        public void AgregarProducto(PRODUCTOS producto)
+        public void AgregarProducto(clsPRODUCTOS productoNuevo)
         {
-            List<PRODUCTOS> productos = context.PRODUCTOS.Select(x => x).ToList();
-            productos.Add(producto);
+            context.PRODUCTOS.Add(
+                new PRODUCTOS()
+                {
+                    Id_Producto = NextIdProducto(),
+                    Nombre = productoNuevo.Nombre,
+                    Descripcion = productoNuevo.Descripcion,
+                    Disponibilidad = true,
+                    Id_Subcategoria = productoNuevo.Id_Subcategoria,
+                    Precio = productoNuevo.Precio
+                }
+            );
             context.SaveChanges();
         }
 
-        public void EliminarProducto(PRODUCTOS producto)
+        public void EliminarProducto(clsPRODUCTOS producto)
         {
             PRODUCTOS productoAEliminar = context.PRODUCTOS.Where(x => x.Id_Producto == producto.Id_Producto).FirstOrDefault();
             if (productoAEliminar != null)
             {
                 context.PRODUCTOS.Remove(productoAEliminar);
+                context.SaveChanges();
+            }
+        }
+
+        public void ActualizarEstado(clsPRODUCTOS producto)
+        {
+            PRODUCTOS productoACambiar = context.PRODUCTOS.Where(x => x.Id_Producto == producto.Id_Producto).FirstOrDefault();
+            if (productoACambiar != null)
+            {
+                productoACambiar.Disponibilidad = producto.Disponibilidad;
                 context.SaveChanges();
             }
         }
@@ -47,9 +66,10 @@ namespace Negocio
                         Id_Producto = producto.Id_Producto,
                         Precio = producto.Precio,
                         Nombre = producto.Nombre,
+                        Descripcion = producto.Descripcion,
                         Id_Subcategoria = producto.Id_Subcategoria,
                         Disponibilidad = producto.Disponibilidad
-                    }    
+                    }
                 );
             }
             return newlistaProductos;
@@ -58,7 +78,7 @@ namespace Negocio
         public List<clsPRODUCTOS> GetListaProductos()
         {
             List<clsPRODUCTOS> newlistaProductos = new List<clsPRODUCTOS>();
-            List<PRODUCTOS> listaProductos = context.PRODUCTOS.Select(x=>x).ToList();
+            List<PRODUCTOS> listaProductos = context.PRODUCTOS.Select(x => x).ToList();
             foreach (PRODUCTOS producto in listaProductos)
             {
                 newlistaProductos.Add(
@@ -78,6 +98,12 @@ namespace Negocio
         {
             PRODUCTOS productoObtenido = context.PRODUCTOS.Where(x => x.Id_Producto == idProducto).FirstOrDefault();
             return productoObtenido;
+        }
+
+        public int NextIdProducto()
+        {
+            List<int> MaxId = context.PRODUCTOS.Select(x => x.Id_Producto).ToList();
+            return MaxId.Count > 0 ? MaxId.Max() + 1 : 1;
         }
     }
 }

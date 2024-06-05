@@ -30,6 +30,14 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             context.SaveChanges();
         }
 
+        public void ActualizarMenu(clsMENUS_DEL_DIA menu)
+        {
+            MENUS_DEL_DIA newMenu = context.MENUS_DEL_DIA.Where(x=>x.Menu_ID == menu.Menu_ID).FirstOrDefault();
+            newMenu.Descripcion = menu.Descripcion;
+            newMenu.Precio = menu.Precio;
+            context.SaveChanges();
+        }
+
         public List<clsMENUS_DEL_DIA> GetListaMenu()
         {
             List<MENUS_DEL_DIA>  list = context.MENUS_DEL_DIA.Select(x => x).ToList(); 

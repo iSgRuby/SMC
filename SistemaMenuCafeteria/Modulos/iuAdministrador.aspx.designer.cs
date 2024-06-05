@@ -15,76 +15,121 @@ namespace SistemaMenuCafeteria.Modulos
     {
 
         /// <summary>
-        /// txtMenuDelDia1 control.
+        /// txtNombreMenuDelDia1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMenuDelDia1;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia1;
 
         /// <summary>
-        /// signoPesos control.
+        /// lblPrecio1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label signoPesos;
+        protected global::System.Web.UI.WebControls.Label lblPrecio1;
 
         /// <summary>
-        /// txtMenuDelDia2 control.
+        /// txtPrecioMenuDelDia1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMenuDelDia2;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia1;
 
         /// <summary>
-        /// TextBox1 control.
+        /// btnActualizarMenu1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Button btnActualizarMenu1;
 
         /// <summary>
-        /// Label1 control.
+        /// txtNombreMenuDelDia2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia2;
 
         /// <summary>
-        /// TextBox2 control.
+        /// lblPrecio2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Label lblPrecio2;
 
         /// <summary>
-        /// nameInput control.
+        /// txtPrecioMenuDelDia2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nameInput;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia2;
 
         /// <summary>
-        /// categoryInput control.
+        /// btnActualizarMenu2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox categoryInput;
+        protected global::System.Web.UI.WebControls.Button btnActualizarMenu2;
+
+        /// <summary>
+        /// txtNombreProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombreProducto;
+
+        /// <summary>
+        /// txtDescripcionProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionProducto;
+
+        /// <summary>
+        /// ddlCategoriaProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoriaProducto;
+
+        /// <summary>
+        /// ddlSubcategoriaProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSubcategoriaProducto;
+
+        /// <summary>
+        /// txtPrecioProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioProducto;
 
         /// <summary>
         /// btnAgregarProducto control.
@@ -94,6 +139,24 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarProducto;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
         /// gvProductos control.
