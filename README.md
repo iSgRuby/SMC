@@ -17,7 +17,7 @@ Este readme está hecho para hacer referencia a las herramientas antes mencionad
 ### Inicio de instalación
 #### - Crear base de datos
 - Abrir SSMS y conectarte al servidor local de SQL server
-- Dentro del repositorio se encuentra un archivo llamado "", ejecuta el script en SSMS
+- Dentro del repositorio se encuentra un archivo llamado "ScriptBaseDeDatos.sql" que se encuentra en la carpeta de "Documentación", ejecuta el script en SSMS
 #### - Clona este repositorio
 #### - Abrir Visual Studio 2022
   - Seleccionar Abrir nuevo proyecto y abrir el repositorio clonado pulsando en el archivo con la extensión "sln"
