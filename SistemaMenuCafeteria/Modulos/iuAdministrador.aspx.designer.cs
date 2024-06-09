@@ -105,15 +105,6 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtDescripcionProducto;
 
         /// <summary>
-        /// ddlCategoriaProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategoriaProducto;
-
-        /// <summary>
         /// ddlSubcategoriaProducto control.
         /// </summary>
         /// <remarks>

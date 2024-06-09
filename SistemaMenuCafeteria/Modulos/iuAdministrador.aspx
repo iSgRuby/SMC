@@ -69,7 +69,7 @@
                         <h5 class="card-title">Agregar Producto</h5>
                         <asp:TextBox runat="server" ID="txtNombreProducto" CssClass="form-control mb-3" placeholder="Nombre" />
                         <asp:TextBox runat="server" ID="txtDescripcionProducto" CssClass="form-control mb-3" placeholder="Descripcion" />
-                        <asp:DropDownList runat="server" ID="ddlCategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Categoría" />
+                        <%--<asp:DropDownList runat="server" ID="ddlCategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Categoría" />--%>
                         <asp:DropDownList runat="server" ID="ddlSubcategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Subcategoria" />
                         <asp:TextBox runat="server" ID="txtPrecioProducto" CssClass="form-control mb-3" placeholder="Precio" />
                         <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click" CssClass="btn btn-primary btn-block offset-4 col-4" />
@@ -97,6 +97,12 @@
                 AutoGenerateColumns="false" CssClass="table">
                 <Columns>
 
+                    <asp:TemplateField HeaderText="Descripción" Visible="false">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Id_Producto") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Descripción">
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblNombre" Text='<%# Bind("Nombre") %>' />
@@ -111,7 +117,7 @@
 
                     <asp:TemplateField HeaderText="Descripcion">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblPrecio" Text='<%# Bind("Descripcion") %>' />
+                            <asp:Label runat="server" ID="lblDescripcion" Text='<%# Bind("Descripcion") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

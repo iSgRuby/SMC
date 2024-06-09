@@ -43,11 +43,11 @@ namespace SistemaMenuCafeteria.Modulos
         }
         private void PreLoadDropDowns()
         {
-            ddlCategoriaProducto.DataSource = _categoria.GetListaCategorias();
-            ddlCategoriaProducto.DataValueField = "Id_Categoria";
-            ddlCategoriaProducto.DataTextField = "Nombre_Categoria";
-            ddlCategoriaProducto.DataBind();
-            ddlCategoriaProducto.Items.Insert(0, new ListItem("-Categoria-", "-1"));
+            //ddlCategoriaProducto.DataSource = _categoria.GetListaCategorias();
+            //ddlCategoriaProducto.DataValueField = "Id_Categoria";
+            //ddlCategoriaProducto.DataTextField = "Nombre_Categoria";
+            //ddlCategoriaProducto.DataBind();
+            //ddlCategoriaProducto.Items.Insert(0, new ListItem("-Categoria-", "-1"));
 
 
             ddlSubcategoriaProducto.DataSource = _subcategoria.GetListaSubcategorias();
@@ -62,21 +62,23 @@ namespace SistemaMenuCafeteria.Modulos
             _producto.AgregarProducto(
                 new clsPRODUCTOS()
                 {
+                    Id_Producto = 0,
                     Nombre = txtNombreProducto.Text,
                     Descripcion = txtDescripcionProducto.Text,
                     Disponibilidad = true,
                     Id_Subcategoria = int.Parse(ddlSubcategoriaProducto.SelectedValue),
+                    Precio = decimal.Parse(txtPrecioProducto.Text)
                 }
              );
         }
 
         protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int pageIndex = gvProductos.PageIndex;
-            int index = e.RowIndex * pageIndex;
+            Label lblIdProducto = gvProductos.Rows[e.RowIndex].FindControl("lblIdProducto") as Label;
+            clsPRODUCTOS productoAEliminar =  _producto.GetProducto(int.Parse(lblIdProducto.Text));
 
-            clsPRODUCTOS productoAEliminar = _producto.GetListaProductos()[index];
             _producto.EliminarProducto(productoAEliminar);
+            Response.Redirect("~/Modulos/iuAdministrador.aspx");
         }
 
         protected void gvProductos_RowDataBound(object sender, GridViewRowEventArgs e)

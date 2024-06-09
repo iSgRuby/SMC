@@ -21,9 +21,9 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         private static readonly Random random = new Random();
 
 
-        private List<Category> Categories
+        private List<Navigate> Categories
         {
-            get { return (List<Category>)ViewState["Categories"]; }
+            get { return (List<Navigate>)ViewState["Categories"]; }
             set { ViewState["Categories"] = value; }
         }
 
@@ -44,6 +44,10 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
 
                 BindCategories();
                 BindMenusDelDia();
+            }
+            else if (IsPostBack)
+            {
+            
             }
         }
 
@@ -116,15 +120,6 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         }
 
 
-
-        protected void txtBusqueda_OnTextChanged(object sender, EventArgs e)
-        {
-            // Aquí se maneja el evento onkeyup (TextChanged)
-            string input = txtBusqueda.Text;
-
-        }
-
-
         protected void rptCategories_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -175,30 +170,74 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             }
         }
 
-        private List<Category> GetCategorias(List<clsCATEGORIAS> clsCategorias)
+
+
+        private List<Navigate> GetCategorias(List<clsCATEGORIAS> clsCategorias)
         {
-            List<Category> categorias = new List<Category>
+            List<Navigate> categorias = new List<Navigate>
             {
-                new Category { Text = "Menus del dia", NavigateUrl = "#menuDelDiaContainer" }
+                new Navigate { Text = "Menus del dia", NavigateUrl = "#menuDelDiaContainer" }
             };
             foreach (clsCATEGORIAS categoria in clsCategorias)
             {
                 categorias.Add(
-                    new Category()
+                    new Navigate()
                     {
                         Text = categoria.Nombre_Categoria,
-                        NavigateUrl = "#" + categoria.Id_Categoria
+                        NavigateUrl = "#Cat" + categoria.Id_Categoria
                     }
                 );
             }
             return categorias;
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            gvResults.Visible = pnlSearch.Visible = !pnlSearch.Visible;
+        }
+        protected void btnSubmitSearch_Click(object sender, EventArgs e)
+        {
+            List<clsPRODUCTOS> clsPRODUCTOs = new List<clsPRODUCTOS>();
+            string searchQuery = txtSearch.Text.ToLower();
+            if (searchQuery != "")
+            {
+                clsPRODUCTOs = _objProducto.GetListaProductos().Where(x => x.Nombre.ToLower().Contains(searchQuery)).Take(7).ToList();
+                if (clsPRODUCTOs.Count > 1)
+                {
+                    gvResults.DataSource = clsPRODUCTOs;
+                    gvResults.DataBind();
+                }
+                else if (clsPRODUCTOs.Count == 1)
+                {
+                    Response.Redirect("#Prod" + clsPRODUCTOs[0].Id_Producto);
+                    pnlSearch.Visible = false;
+                }
+            }
+        }
+
+        protected void btnProductoResult_Click(object sender, EventArgs e)
+        {
+            Button btnProductoResult = sender as Button;
+            int idProducto = int.Parse(btnProductoResult.Attributes["idProducto"]);
+            Response.Redirect("iuUsuario.aspx#Prod" + idProducto.ToString());
+            gvResults.Visible = false;
+            pnlSearch.Visible = false;
+        }
+
+        protected void gvResults_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Button btnProductoResult = e.Row.FindControl("btnProductoResult") as Button;
+                btnProductoResult.Attributes.Add("idProducto", ((Label)e.Row.FindControl("lblIdProductoResult")).Text);
+            }
         }
     }
 
 
 
     [Serializable]
-    public class Category
+    public class Navigate
     {
         public string Text { get; set; }
         public string NavigateUrl { get; set; }

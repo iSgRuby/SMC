@@ -23,7 +23,6 @@ namespace Negocio
             context.PRODUCTOS.Add(
                 new PRODUCTOS()
                 {
-                    Id_Producto = NextIdProducto(),
                     Nombre = productoNuevo.Nombre,
                     Descripcion = productoNuevo.Descripcion,
                     Disponibilidad = true,
@@ -87,6 +86,7 @@ namespace Negocio
                         Id_Producto = producto.Id_Producto,
                         Precio = producto.Precio,
                         Nombre = producto.Nombre,
+                        Descripcion = producto.Descripcion,
                         Id_Subcategoria = producto.Id_Subcategoria,
                         Disponibilidad = producto.Disponibilidad
                     }
@@ -94,10 +94,18 @@ namespace Negocio
             }
             return newlistaProductos;
         }
-        public PRODUCTOS GetProducto(int idProducto)
+        public clsPRODUCTOS GetProducto(int idProducto)
         {
             PRODUCTOS productoObtenido = context.PRODUCTOS.Where(x => x.Id_Producto == idProducto).FirstOrDefault();
-            return productoObtenido;
+            return new clsPRODUCTOS()
+            {
+                Id_Producto = productoObtenido.Id_Producto,
+                Nombre = productoObtenido.Nombre,
+                Descripcion = productoObtenido.Descripcion,
+                Precio = productoObtenido.Precio,
+                Id_Subcategoria = productoObtenido.Id_Subcategoria,
+                Disponibilidad = productoObtenido.Disponibilidad,
+            };
         }
 
         public int NextIdProducto()

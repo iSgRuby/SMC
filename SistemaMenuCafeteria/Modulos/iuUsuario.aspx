@@ -33,10 +33,10 @@
             justify-content: space-between;
         }
 
-        .category-container a {
-            margin: 0 5px;
-            white-space: nowrap;
-        }
+            .category-container a {
+                margin: 0 5px;
+                white-space: nowrap;
+            }
 
         .menu-info h3 {
             font-weight: bold;
@@ -150,14 +150,13 @@
             padding: 10px;
             margin-bottom: 10px;
             width: 343px; /* Ancho fijo */
-            height: 72px; /* Alto fijo */
+            /*height: 72px;*/ /* Alto fijo */
             line-height: 52px; /* Alinear verticalmente el texto */
             text-transform: uppercase; /* Texto en mayúsculas */
             margin: 0 auto; /* Centrar horizontalmente */
             border: 2px solid #000; /* Borde negro menos grueso */
             font-size: 40px; /* Tamaño de fuente */
             font-style: italic; /* Texto en cursiva */
-            margin-top: 18rem;
         }
 
         .menu-image {
@@ -204,20 +203,6 @@
             width: 100%;
         }
     </style>
-
-    <!-- Script para manejar la funcionalidad de búsqueda y despliegue del campo de búsqueda -->
-    <script type="text/javascript">
-        function mostrarBusqueda() {
-            var busqueda = document.getElementById("<%= txtBusqueda.ClientID %>");
-            if (busqueda.style.display === "none") {
-                busqueda.style.display = "block";
-                busqueda.focus();
-            } else {
-                busqueda.style.display = "none";
-            }
-        }
-
-    </script>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="NombrePag" runat="server"></asp:Content>
@@ -246,30 +231,42 @@
 
 
         <%-- Bóton búsqueda --%>
-        <div class="offset-10 col-2">
-            <div class="float-md-right search-container">
-                <button type="button" class="btn btn-outline-primary" onclick="mostrarBusqueda()">
-                    <i class="fas fa-search"></i>
-                </button>
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <asp:Panel ID="pnlSearch" runat="server" CssClass="input-group" Visible="false">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search for..."></asp:TextBox>
+                    <div class="input-group-append">
+                        <asp:Button ID="btnSubmitSearch" runat="server" CssClass="btn btn-success" Text="Submit" OnClick="btnSubmitSearch_Click" />
+                    </div>
+                </asp:Panel>
+                <asp:GridView ID="gvResults" runat="server" CssClass="table table-striped" AutoGenerateColumns="false" ShowHeader="false" OnRowDataBound="gvResults_RowDataBound">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Label ID="lblIdProductoResult" runat="server" Text='<%# Eval("Id_Producto") %>' Visible="false"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
-                <%-- Script botón búsqueda --%>
-                <asp:ScriptManager ID="ScriptManager1" runat="server" />
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <asp:TextBox ID="txtBusqueda" runat="server" CssClass="form-control search-input" OnTextChanged="txtBusqueda_OnTextChanged" AutoPostBack="true" />
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="txtBusqueda" EventName="TextChanged" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="btnProductoResult" runat="server" Text='<%# Eval("Nombre") %>' OnClick="btnProductoResult_Click"></asp:Button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <div class="col-auto">
+                <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-primary" OnClick="btnSearch_Click">
+                    <i class="fa fa-search"></i>
+                </asp:LinkButton>
             </div>
         </div>
 
-        <%-- Título menús del día --%>
-        <div class="menu-header" id="menuDelDiaContainer">MENÚS DEL DÍA</div>
     </div>
     <%-- Termina la imagen --%>
 
+    <%-- Título menús del día --%>
+    <div class="menu-header" id="menuDelDiaContainer">MENÚS DEL DÍA</div>
 
     <!-- Contenido de MENÚS DEL DÍA -->
     <div class="row justify-content-center mt-3">
@@ -320,25 +317,27 @@
         <!-- Listado de productos -->
         <asp:Repeater ID="rptCategories" runat="server" OnItemDataBound="rptCategories_ItemDataBound">
             <ItemTemplate>
-                <div class="col-md-12" id="<%# Eval("Id_Categoria") %>">
+                <div class="col-md-12" id="Cat<%# Eval("Id_Categoria") %>">
                     <h2 class="comidas"><%# Eval("Nombre_Categoria") %></h2>
                     <asp:Repeater ID="rptSubcategories" runat="server" OnItemDataBound="rptSubcategories_ItemDataBound">
                         <ItemTemplate>
                             <h3><%# Eval("Nombre_Subcategoria") %></h3>
                             <asp:Repeater ID="rptProducts" runat="server" OnItemDataBound="rptProducts_ItemDataBound">
                                 <ItemTemplate>
-                                    <div id="divProducto" runat="server" class="producto">
-                                        <div class="producto-info">
-                                            <div class="producto-header">
-                                                <h4><%# Eval("Nombre") %></h4>
-                                                <p><%# Eval("Descripcion") %></p>
+                                    <div id="Prod<%# Eval("Id_Producto") %>">
+                                        <div id="divProducto" runat="server" class="producto">
+                                            <div class="producto-info">
+                                                <div class="producto-header">
+                                                    <h4><%# Eval("Nombre") %></h4>
+                                                    <p><%# Eval("Descripcion") %></p>
+                                                </div>
+                                                <div class="precio-container col-lg-1 col-md-1 col-sm-1">
+                                                    <span class="precio-signo">$</span>
+                                                    <input type="text" class="precio-input" value="<%# Eval("Precio") %>" />
+                                                </div>
                                             </div>
-                                            <div class="precio-container col-lg-1 col-md-1 col-sm-1">
-                                                <span class="precio-signo">$</span>
-                                                <input type="text" class="precio-input" value="<%# Eval("Precio") %>" />
-                                            </div>
+                                            <asp:Button runat="server" ID="btnDisponibilidad" Enabled="false" CssClass="rounded-circle btnDisponibilidad" />
                                         </div>
-                                        <asp:Button runat="server" ID="btnDisponibilidad" Enabled="false" CssClass="rounded-circle btnDisponibilidad" />
                                     </div>
                                     <br />
                                 </ItemTemplate>
