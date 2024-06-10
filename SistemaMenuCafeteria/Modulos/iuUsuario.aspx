@@ -234,12 +234,12 @@
         <div class="row justify-content-end">
             <div class="col-auto">
                 <asp:Panel ID="pnlSearch" runat="server" CssClass="input-group" Visible="false">
-                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search for..."></asp:TextBox>
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Buscar..."></asp:TextBox>
                     <div class="input-group-append">
-                        <asp:Button ID="btnSubmitSearch" runat="server" CssClass="btn btn-success" Text="Submit" OnClick="btnSubmitSearch_Click" />
+                        <asp:Button ID="btnSubmitSearch" runat="server" CssClass="btn btn-success" Text="Buscar" OnClick="btnSubmitSearch_Click" />
                     </div>
                 </asp:Panel>
-                <asp:GridView ID="gvResults" runat="server" CssClass="table table-striped" AutoGenerateColumns="false" ShowHeader="false" OnRowDataBound="gvResults_RowDataBound">
+                <asp:GridView ID="gvResults" runat="server" CssClass="table table-striped" AutoGenerateColumns="false" ShowHeader="false" OnRowDataBound="gvResults_RowDataBound" EmptyDataText="No se encontraron coincidencias">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

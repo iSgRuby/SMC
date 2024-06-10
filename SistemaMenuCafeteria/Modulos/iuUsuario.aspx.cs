@@ -202,15 +202,16 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             if (searchQuery != "")
             {
                 clsPRODUCTOs = _objProducto.GetListaProductos().Where(x => x.Nombre.ToLower().Contains(searchQuery)).Take(7).ToList();
-                if (clsPRODUCTOs.Count > 1)
+                
+                if (clsPRODUCTOs.Count == 1)
+                {
+                    Response.Redirect("iuUsuario.aspx#Prod" + clsPRODUCTOs[0].Id_Producto);
+                    pnlSearch.Visible = false;
+                }
+                else
                 {
                     gvResults.DataSource = clsPRODUCTOs;
                     gvResults.DataBind();
-                }
-                else if (clsPRODUCTOs.Count == 1)
-                {
-                    Response.Redirect("#Prod" + clsPRODUCTOs[0].Id_Producto);
-                    pnlSearch.Visible = false;
                 }
             }
         }
