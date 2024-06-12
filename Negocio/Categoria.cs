@@ -17,17 +17,6 @@ namespace Negocio
             context = new cafeteria_ESIME_CulhuacanEntities();
         }
 
-        public clsCATEGORIAS GetCategoria(int idCategoria)
-        {
-            CATEGORIAS categoria = context.CATEGORIAS.Where(x => x.Id_Categoria == idCategoria).FirstOrDefault();
-            return new clsCATEGORIAS() 
-            { 
-                Id_Categoria = categoria.Id_Categoria,
-                Nombre_Categoria = categoria.Nombre_Categoria
-            };
-             
-        }
-
         public List<clsCATEGORIAS> GetListaCategorias()
         {
             List<CATEGORIAS> listaDeCategorias = context.CATEGORIAS.Select(x => x).ToList();

@@ -24,6 +24,15 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia1;
 
         /// <summary>
+        /// btnActualizarMenu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizarMenu1;
+
+        /// <summary>
         /// lblPrecio1 control.
         /// </summary>
         /// <remarks>
@@ -42,15 +51,6 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia1;
 
         /// <summary>
-        /// btnActualizarMenu1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizarMenu1;
-
-        /// <summary>
         /// txtNombreMenuDelDia2 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +58,15 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia2;
+
+        /// <summary>
+        /// btnActualizarMenu2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizarMenu2;
 
         /// <summary>
         /// lblPrecio2 control.
@@ -76,15 +85,6 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia2;
-
-        /// <summary>
-        /// btnActualizarMenu2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizarMenu2;
 
         /// <summary>
         /// txtNombreProducto control.

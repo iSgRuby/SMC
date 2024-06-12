@@ -36,9 +36,9 @@
                         <p>Precio</p>
                         <div class="input-group mb-3">
                             <div class="d-flex align-items-center">
-                                <asp:Label runat="server" ID="lblPrecio1" Text="$" CssClass="input-group-text"></asp:Label>
+                                <asp:Button runat="server" ID="btnActualizarMenu1" Text="Actualizar menú" OnClick="btnActualizarMenu1_Click" CssClass="btn btn-primary btn-block col-5" />
+                                <asp:Label runat="server" ID="lblPrecio1" Text="$" CssClass="input-group-text offset-3"></asp:Label>
                                 <asp:TextBox CssClass="form-control" placeholder="Ej: 45.60" Width="100%" runat="server" ID="txtPrecioMenuDelDia1" oninput="validatePrice(this)" />
-                                <asp:Button runat="server" ID="btnActualizarMenu1" Text="Actualizar menú" OnClick="btnActualizarMenu1_Click" CssClass="btn btn-primary btn-block offset-3 col-5" />
                             </div>
                         </div>
                     </div>
@@ -54,9 +54,9 @@
                         <p>Precio</p>
                         <div class="input-group mb-3">
                             <div class="d-flex align-items-center">
-                                <asp:Label runat="server" ID="lblPrecio2" Text="$" CssClass="input-group-text"></asp:Label>
+                                <asp:Button runat="server" ID="btnActualizarMenu2" Text="Actualizar menú" OnClick="btnActualizarMenu2_Click" CssClass="btn btn-primary btn-block col-5" />
+                                <asp:Label runat="server" ID="lblPrecio2" Text="$" CssClass="input-group-text offset-3"></asp:Label>
                                 <asp:TextBox CssClass="form-control" placeholder="Ej: 45.60" Width="100%" runat="server" ID="txtPrecioMenuDelDia2" oninput="validatePrice(this)" />
-                                <asp:Button runat="server" ID="btnActualizarMenu2" Text="Actualizar menú" OnClick="btnActualizarMenu2_Click" CssClass="btn btn-primary btn-block offset-3 col-5" />
                             </div>
                         </div>
                     </div>

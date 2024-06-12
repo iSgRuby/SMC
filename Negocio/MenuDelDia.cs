@@ -24,12 +24,6 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
             context.SaveChanges();
         }
 
-        public void EliminarMenu(MENUS_DEL_DIA menu)
-        {
-            context.MENUS_DEL_DIA.Remove(menu);
-            context.SaveChanges();
-        }
-
         public void ActualizarMenu(clsMENUS_DEL_DIA menu)
         {
             MENUS_DEL_DIA newMenu = context.MENUS_DEL_DIA.Where(x=>x.Menu_ID == menu.Menu_ID).FirstOrDefault();
@@ -53,11 +47,6 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
                 );
             }
             return newList;
-        }
-
-        public MENUS_DEL_DIA GetMenu(int idMenu)
-        {
-            return context.MENUS_DEL_DIA.Where(x => x.Menu_ID == idMenu).FirstOrDefault();
         }
     }
 }

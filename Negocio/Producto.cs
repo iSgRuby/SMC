@@ -107,11 +107,5 @@ namespace Negocio
                 Disponibilidad = productoObtenido.Disponibilidad,
             };
         }
-
-        public int NextIdProducto()
-        {
-            List<int> MaxId = context.PRODUCTOS.Select(x => x.Id_Producto).ToList();
-            return MaxId.Count > 0 ? MaxId.Max() + 1 : 1;
-        }
     }
 }
