@@ -108,13 +108,13 @@
                 AutoGenerateColumns="false" CssClass="table">
                 <Columns>
 
-                    <asp:TemplateField HeaderText="Descripción" Visible="false">
+                    <asp:TemplateField HeaderText="id" Visible="false">
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Id_Producto") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Descripción">
+                    <asp:TemplateField HeaderText="Nombre">
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblNombre" Text='<%# Bind("Nombre") %>' />
                         </ItemTemplate>
