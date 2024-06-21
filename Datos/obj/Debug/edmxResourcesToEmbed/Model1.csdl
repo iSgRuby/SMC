@@ -13,6 +13,7 @@
       <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
     </AssociationSet>
     <EntitySet Name="MENUS_DEL_DIA" EntityType="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA" />
+    <EntitySet Name="vw_Productos" EntityType="cafeteria_ESIME_CulhuacanModel.vw_Productos" />
   </EntityContainer>
   <EntityType Name="CATEGORIAS">
     <Key>
@@ -74,6 +75,24 @@
     </Key>
     <Property Name="Menu_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_Productos">
+    <Key>
+      <PropertyRef Name="Id_Producto" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Disponibilidad" />
+      <PropertyRef Name="Nombre_Categoria" />
+      <PropertyRef Name="Nombre_Subcategoria" />
+      <PropertyRef Name="Precio" />
+    </Key>
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+    <Property Name="Nombre_Categoria" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Subcategoria" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Precio" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
   </EntityType>
 </Schema>

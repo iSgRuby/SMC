@@ -11,6 +11,7 @@
         <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK__SUBCATEGO__Id_Ca__4AB81AF0" />
         <AssociationConnector Association="cafeteria_ESIME_CulhuacanModel.FK__PRODUCTOS__Id_Su__4D94879B" />
         <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="cafeteria_ESIME_CulhuacanModel.vw_Productos" Width="1.5" PointX="3.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

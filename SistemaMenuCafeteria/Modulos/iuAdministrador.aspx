@@ -32,13 +32,15 @@
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 1</h4>
                         <p>Nombre</p>
-                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia1" />
-                        <p>Precio</p>
+                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia1" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
+                        <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia1" runat="server" ID="rfvMenuNombre1" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu1" />
+
                         <div class="input-group mb-3">
                             <div class="d-flex align-items-center">
-                                <asp:Button runat="server" ID="btnActualizarMenu1" Text="Actualizar menú" OnClick="btnActualizarMenu1_Click" CssClass="btn btn-primary btn-block col-5" />
+                                <asp:Button runat="server" ID="btnActualizarMenu1" Text="Actualizar menú" OnClick="btnActualizarMenu1_Click" CssClass="btn btn-primary btn-block col-5" ValidationGroup="Menu1" />
                                 <asp:Label runat="server" ID="lblPrecio1" Text="$" CssClass="input-group-text offset-3"></asp:Label>
                                 <asp:TextBox CssClass="form-control" placeholder="Ej: 45.60" Width="100%" runat="server" ID="txtPrecioMenuDelDia1" oninput="validatePrice(this)" />
+                                <asp:RequiredFieldValidator ControlToValidate="txtPrecioMenuDelDia1" runat="server" ID="rfvMenuPrecio1" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu1" />
                             </div>
                         </div>
                     </div>
@@ -50,13 +52,14 @@
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 2</h4>
                         <p>Nombre</p>
-                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia2" />
-                        <p>Precio</p>
+                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia2" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
+                        <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia2" runat="server" ID="rfvMenuNombre2" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu2" />
                         <div class="input-group mb-3">
                             <div class="d-flex align-items-center">
-                                <asp:Button runat="server" ID="btnActualizarMenu2" Text="Actualizar menú" OnClick="btnActualizarMenu2_Click" CssClass="btn btn-primary btn-block col-5" />
+                                <asp:Button runat="server" ID="btnActualizarMenu2" Text="Actualizar menú" OnClick="btnActualizarMenu2_Click" CssClass="btn btn-primary btn-block col-5" ValidationGroup="Menu2" />
                                 <asp:Label runat="server" ID="lblPrecio2" Text="$" CssClass="input-group-text offset-3"></asp:Label>
                                 <asp:TextBox CssClass="form-control" placeholder="Ej: 45.60" Width="100%" runat="server" ID="txtPrecioMenuDelDia2" oninput="validatePrice(this)" />
+                                <asp:RequiredFieldValidator ControlToValidate="txtPrecioMenuDelDia2" runat="server" ID="rfvMenuPrecio2" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu2" />
                             </div>
                         </div>
                     </div>
@@ -68,11 +71,19 @@
                     <div class="card-body">
                         <h5 class="card-title">Agregar Producto</h5>
                         <asp:TextBox runat="server" ID="txtNombreProducto" CssClass="form-control mb-3" placeholder="Nombre" />
+                        <asp:RequiredFieldValidator ControlToValidate="txtNombreProducto" runat="server" ID="rfvNombreProducto" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="AgregarProducto" />
+
                         <asp:TextBox runat="server" ID="txtDescripcionProducto" CssClass="form-control mb-3" placeholder="Descripcion" />
-                        <%--<asp:DropDownList runat="server" ID="ddlCategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Categoría" />--%>
-                        <asp:DropDownList runat="server" ID="ddlSubcategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Subcategoria" />
+                        <asp:RequiredFieldValidator ControlToValidate="txtDescripcionProducto" runat="server" ID="rfvDescripcionProducto" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="AgregarProducto" />
+
+                        <asp:DropDownList runat="server" ID="ddlCategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Categoría" OnSelectedIndexChanged="ddlCategoriaProducto_SelectedIndexChanged" AutoPostBack="true" />
+
+                        <asp:DropDownList runat="server" ID="ddlSubcategoriaProducto" CssClass="dropdown btn btn-lg btn-light dropdown-toggle w-100" placeholder="Subcategoria" Enabled="false" />
+
                         <asp:TextBox runat="server" ID="txtPrecioProducto" CssClass="form-control mb-3" placeholder="Precio" />
-                        <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click" CssClass="btn btn-primary btn-block offset-4 col-4" />
+                        <asp:RequiredFieldValidator ControlToValidate="txtPrecioProducto" runat="server" ID="rfvPrecioProducto" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="AgregarProducto" />
+
+                        <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click" CssClass="btn btn-primary btn-block offset-4 col-4" ValidationGroup="AgregarProducto" />
                     </div>
                 </div>
             </div>
@@ -112,6 +123,18 @@
                     <asp:TemplateField HeaderText="Precio">
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblPrecio" Text='<%# Bind("Precio") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Categoría" Visible="true">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Nombre_Categoria") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Subcategoría" Visible="true">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Nombre_Subcategoria") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

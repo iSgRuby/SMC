@@ -29,5 +29,6 @@ namespace Datos
         public virtual DbSet<PRODUCTOS> PRODUCTOS { get; set; }
         public virtual DbSet<SUBCATEGORIAS> SUBCATEGORIAS { get; set; }
         public virtual DbSet<MENUS_DEL_DIA> MENUS_DEL_DIA { get; set; }
+        public virtual DbSet<vw_Productos> vw_Productos { get; set; }
     }
 }

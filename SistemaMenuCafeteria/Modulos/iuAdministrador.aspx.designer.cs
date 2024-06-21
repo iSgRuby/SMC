@@ -24,6 +24,15 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia1;
 
         /// <summary>
+        /// rfvMenuNombre1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMenuNombre1;
+
+        /// <summary>
         /// btnActualizarMenu1 control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia1;
 
         /// <summary>
+        /// rfvMenuPrecio1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMenuPrecio1;
+
+        /// <summary>
         /// txtNombreMenuDelDia2 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreMenuDelDia2;
+
+        /// <summary>
+        /// rfvMenuNombre2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMenuNombre2;
 
         /// <summary>
         /// btnActualizarMenu2 control.
@@ -87,6 +114,15 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtPrecioMenuDelDia2;
 
         /// <summary>
+        /// rfvMenuPrecio2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMenuPrecio2;
+
+        /// <summary>
         /// txtNombreProducto control.
         /// </summary>
         /// <remarks>
@@ -96,6 +132,15 @@ namespace SistemaMenuCafeteria.Modulos
         protected global::System.Web.UI.WebControls.TextBox txtNombreProducto;
 
         /// <summary>
+        /// rfvNombreProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreProducto;
+
+        /// <summary>
         /// txtDescripcionProducto control.
         /// </summary>
         /// <remarks>
@@ -103,6 +148,24 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcionProducto;
+
+        /// <summary>
+        /// rfvDescripcionProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcionProducto;
+
+        /// <summary>
+        /// ddlCategoriaProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoriaProducto;
 
         /// <summary>
         /// ddlSubcategoriaProducto control.
@@ -121,6 +184,15 @@ namespace SistemaMenuCafeteria.Modulos
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecioProducto;
+
+        /// <summary>
+        /// rfvPrecioProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecioProducto;
 
         /// <summary>
         /// btnAgregarProducto control.

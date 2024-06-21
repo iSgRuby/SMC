@@ -28,7 +28,7 @@ namespace SistemaMenuCafeteria.Modulos
 
         private void CargaGrid()
         {
-            gvProductos.DataSource = _producto.GetListaProductos();
+            gvProductos.DataSource = _producto.GetListaVwProductos();
             gvProductos.DataBind();
         }
 
@@ -43,39 +43,37 @@ namespace SistemaMenuCafeteria.Modulos
         }
         private void PreLoadDropDowns()
         {
-            //ddlCategoriaProducto.DataSource = _categoria.GetListaCategorias();
-            //ddlCategoriaProducto.DataValueField = "Id_Categoria";
-            //ddlCategoriaProducto.DataTextField = "Nombre_Categoria";
-            //ddlCategoriaProducto.DataBind();
-            //ddlCategoriaProducto.Items.Insert(0, new ListItem("-Categoria-", "-1"));
-
-
-            ddlSubcategoriaProducto.DataSource = _subcategoria.GetListaSubcategorias();
-            ddlSubcategoriaProducto.DataValueField = "Id_Subcategoria";
-            ddlSubcategoriaProducto.DataTextField = "Nombre_Subcategoria";
-            ddlSubcategoriaProducto.DataBind();
             ddlSubcategoriaProducto.Items.Insert(0, new ListItem("-Subcategoria-", "-1"));
+
+            ddlCategoriaProducto.DataSource = _categoria.GetListaCategorias();
+            ddlCategoriaProducto.DataValueField = "Id_Categoria";
+            ddlCategoriaProducto.DataTextField = "Nombre_Categoria";
+            ddlCategoriaProducto.DataBind();
+            ddlCategoriaProducto.Items.Insert(0, new ListItem("-Categoria-", "-1"));
 
         }
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            _producto.AgregarProducto(
-                new clsPRODUCTOS()
-                {
-                    Id_Producto = 0,
-                    Nombre = txtNombreProducto.Text,
-                    Descripcion = txtDescripcionProducto.Text,
-                    Disponibilidad = true,
-                    Id_Subcategoria = int.Parse(ddlSubcategoriaProducto.SelectedValue),
-                    Precio = decimal.Parse(txtPrecioProducto.Text)
-                }
-             );
+            if (ddlSubcategoriaProducto.SelectedValue != "-1" && ddlCategoriaProducto.SelectedValue != "-1")
+            {
+                _producto.AgregarProducto(
+                    new clsPRODUCTOS()
+                    {
+                        Id_Producto = 0,
+                        Nombre = txtNombreProducto.Text,
+                        Descripcion = txtDescripcionProducto.Text,
+                        Disponibilidad = true,
+                        Id_Subcategoria = int.Parse(ddlSubcategoriaProducto.SelectedValue),
+                        Precio = decimal.Parse(txtPrecioProducto.Text)
+                    }
+                 ); 
+            }
         }
 
         protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             Label lblIdProducto = gvProductos.Rows[e.RowIndex].FindControl("lblIdProducto") as Label;
-            clsPRODUCTOS productoAEliminar =  _producto.GetProducto(int.Parse(lblIdProducto.Text));
+            clsPRODUCTOS productoAEliminar = _producto.GetProducto(int.Parse(lblIdProducto.Text));
 
             _producto.EliminarProducto(productoAEliminar);
             Response.Redirect("~/Modulos/iuAdministrador.aspx");
@@ -135,6 +133,25 @@ namespace SistemaMenuCafeteria.Modulos
                 Precio = decimal.Parse(txtPrecioMenuDelDia2.Text)
             };
             _menuDelDia.ActualizarMenu(newMenu);
+        }
+
+        protected void ddlCategoriaProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlCategoriaProducto.SelectedValue != "-1")
+            {
+                ddlSubcategoriaProducto.DataSource = _subcategoria.GetListaSubcategoriasByIdCategoria(int.Parse(ddlCategoriaProducto.SelectedValue));
+                ddlSubcategoriaProducto.DataValueField = "Id_Subcategoria";
+                ddlSubcategoriaProducto.DataTextField = "Nombre_Subcategoria";
+                ddlSubcategoriaProducto.DataBind();
+                ddlSubcategoriaProducto.Items.Insert(0, new ListItem("-Subcategoria-", "-1"));
+
+                ddlSubcategoriaProducto.Enabled = true;
+            }
+            else
+            {
+                ddlSubcategoriaProducto.SelectedValue = "-1";
+                ddlSubcategoriaProducto.Enabled = false;
+            }
         }
     }
 }

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categoria.cs" />
+    <Compile Include="Entidades\clsVw_Productos.cs" />
     <Compile Include="Subcategoria.cs" />
     <Compile Include="MenuDelDia.cs" />
     <Compile Include="Producto.cs" />

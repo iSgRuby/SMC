@@ -94,6 +94,21 @@ namespace Negocio
             }
             return newlistaProductos;
         }
+
+        public List<clsVw_Productos> GetListaVwProductos()
+        {
+            return (from x in context.vw_Productos
+                    select new clsVw_Productos()
+                    {
+                        Id_Producto = x.Id_Producto,
+                        Nombre = x.Nombre,
+                        Descripcion = x.Descripcion,
+                        Disponibilidad = x.Disponibilidad,
+                        Nombre_Categoria = x.Nombre_Categoria,
+                        Nombre_Subcategoria = x.Nombre_Subcategoria,
+                        Precio = x.Precio,
+                    }).ToList();
+        }
         public clsPRODUCTOS GetProducto(int idProducto)
         {
             PRODUCTOS productoObtenido = context.PRODUCTOS.Where(x => x.Id_Producto == idProducto).FirstOrDefault();

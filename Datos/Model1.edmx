@@ -39,7 +39,27 @@
           <Property Name="Nombre_Subcategoria" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Id_Categoria" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__PRODUCTOS__Id_Su__4D94879B">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cafeteria_ESIME_Culhuacan.dbo.vw_Productos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Productos">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Disponibilidad" />
+            <PropertyRef Name="Nombre_Categoria" />
+            <PropertyRef Name="Nombre_Subcategoria" />
+            <PropertyRef Name="Precio" />
+          </Key>
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+          <Property Name="Nombre_Categoria" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre_Subcategoria" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__PRODUCTOS__Id_Su__3C69FB99">
           <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="1" />
           <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -51,7 +71,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SUBCATEGO__Id_Ca__4AB81AF0">
+        <Association Name="FK__SUBCATEGO__Id_Ca__398D8EEE">
           <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="1" />
           <End Role="SUBCATEGORIAS" Type="Self.SUBCATEGORIAS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,11 +88,22 @@
           <EntitySet Name="MENUS_DEL_DIA" EntityType="Self.MENUS_DEL_DIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SUBCATEGORIAS" EntityType="Self.SUBCATEGORIAS" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__PRODUCTOS__Id_Su__4D94879B" Association="Self.FK__PRODUCTOS__Id_Su__4D94879B">
+          <EntitySet Name="vw_Productos" EntityType="Self.vw_Productos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Productos].[Id_Producto] AS [Id_Producto], 
+    [vw_Productos].[Nombre] AS [Nombre], 
+    [vw_Productos].[Descripcion] AS [Descripcion], 
+    [vw_Productos].[Disponibilidad] AS [Disponibilidad], 
+    [vw_Productos].[Nombre_Categoria] AS [Nombre_Categoria], 
+    [vw_Productos].[Nombre_Subcategoria] AS [Nombre_Subcategoria], 
+    [vw_Productos].[Precio] AS [Precio]
+    FROM [dbo].[vw_Productos] AS [vw_Productos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__PRODUCTOS__Id_Su__3C69FB99" Association="Self.FK__PRODUCTOS__Id_Su__3C69FB99">
             <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
             <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
           </AssociationSet>
-          <AssociationSet Name="FK__SUBCATEGO__Id_Ca__4AB81AF0" Association="Self.FK__SUBCATEGO__Id_Ca__4AB81AF0">
+          <AssociationSet Name="FK__SUBCATEGO__Id_Ca__398D8EEE" Association="Self.FK__SUBCATEGO__Id_Ca__398D8EEE">
             <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
             <End Role="SUBCATEGORIAS" EntitySet="SUBCATEGORIAS" />
           </AssociationSet>
@@ -94,6 +125,7 @@
             <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
           </AssociationSet>
           <EntitySet Name="MENUS_DEL_DIA" EntityType="cafeteria_ESIME_CulhuacanModel.MENUS_DEL_DIA" />
+          <EntitySet Name="vw_Productos" EntityType="cafeteria_ESIME_CulhuacanModel.vw_Productos" />
         </EntityContainer>
         <EntityType Name="CATEGORIAS">
           <Key>
@@ -157,6 +189,24 @@
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Precio" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
         </EntityType>
+        <EntityType Name="vw_Productos">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Disponibilidad" />
+            <PropertyRef Name="Nombre_Categoria" />
+            <PropertyRef Name="Nombre_Subcategoria" />
+            <PropertyRef Name="Precio" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+          <Property Name="Nombre_Categoria" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Subcategoria" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -198,6 +248,19 @@
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Productos">
+            <EntityTypeMapping TypeName="cafeteria_ESIME_CulhuacanModel.vw_Productos">
+              <MappingFragment StoreEntitySet="vw_Productos">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Nombre_Subcategoria" ColumnName="Nombre_Subcategoria" />
+                <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
