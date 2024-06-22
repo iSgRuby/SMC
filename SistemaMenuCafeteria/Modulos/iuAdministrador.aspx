@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 1</h4>
-                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia1" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
+                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia1" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122) || event.keyCode == 32)" />
                         <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia1" runat="server" ID="rfvMenuNombre1" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu1" />
 
                         <div class="input-group mb-3">
@@ -50,7 +50,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 2</h4>
-                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia2" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
+                        <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia2" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122) || event.keyCode == 32)" />
                         <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia2" runat="server" ID="rfvMenuNombre2" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu2" />
                         <div class="input-group mb-3">
                             <div class="d-flex align-items-center">
