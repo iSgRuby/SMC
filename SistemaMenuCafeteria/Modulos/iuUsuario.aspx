@@ -209,7 +209,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <%-- Empieza la imagen --%>
-    <div class="esime-image-container" style="background-image: url('../images/menu-image.jpg');">
+    <div class="" style="background-image: url('../images/menu-image.jpg');">
         <%-- Agrupación de barra de categorías con botones de desplazamiento --%>
         <div class="col-12 d-flex justify-content-between align-items-center category-bar">
             <%-- Botón de desplazamiento izquierdo --%>
