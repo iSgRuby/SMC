@@ -79,34 +79,35 @@ INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Hamburgue
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Molletes', 1);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Burritos', 1);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Chilaquiles', 1);
-INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 1);
 
 
 -- Bebidas frías
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Jugos', 2);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Refrescos', 2);
-INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 2);
 
 
 -- Bebidas calientes
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Cafés', 3);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Tés', 3);
-INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 3);
 
 
 -- Snacks
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Frituras', 4);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Galletas', 4);
-INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 4);
 
 
 -- Dulces
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Chicles', 5);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Chocolates', 5);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Barritas', 5);
-INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 5);
 
--- Otros
+
+
+INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 1);
+INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 2);
+INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 3);
+INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 4);
+INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 5);
 INSERT INTO SUBCATEGORIAS (Nombre_Subcategoria, Id_Categoria) VALUES ('Otros', 6);
 
 
@@ -270,7 +271,7 @@ select
 	p.Precio
 from PRODUCTOS as p
 join SUBCATEGORIAS sub on p.Id_Subcategoria = sub.Id_Subcategoria
-	join CATEGORIAS cat on sub.Id_Subcategoria = cat.Id_Categoria
+	join CATEGORIAS cat on sub.Id_Categoria = cat.Id_Categoria
 GO
 
 

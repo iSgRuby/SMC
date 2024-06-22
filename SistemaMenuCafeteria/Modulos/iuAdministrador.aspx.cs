@@ -66,7 +66,7 @@ namespace SistemaMenuCafeteria.Modulos
                         Id_Subcategoria = int.Parse(ddlSubcategoriaProducto.SelectedValue),
                         Precio = decimal.Parse(txtPrecioProducto.Text)
                     }
-                 ); 
+                 );
             }
         }
 
@@ -87,8 +87,8 @@ namespace SistemaMenuCafeteria.Modulos
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string searchTerm = txtSearch.Text.Trim().ToLower();
-            List<clsPRODUCTOS> productos = _producto.GetListaProductos();
-            List<clsPRODUCTOS> filteredProductos = productos
+            List<clsVw_Productos> productos = _producto.GetListaVwProductos();
+            List<clsVw_Productos> filteredProductos = productos
                 .Where(p => p.Nombre.ToLower().Contains(searchTerm))
                 .ToList();
 
@@ -109,8 +109,11 @@ namespace SistemaMenuCafeteria.Modulos
                 _producto.ActualizarEstado(producto);
             }
 
-            gvProductos.DataSource = productos;
+            gvProductos.DataSource = _producto.GetListaVwProductos();
             gvProductos.DataBind();
+
+
+            Response.Redirect("/Modulos/iuAdministrador.aspx");
         }
 
         protected void btnActualizarMenu1_Click(object sender, EventArgs e)

@@ -3,86 +3,54 @@
   "WorkspaceRootPath": "C:\\GitHub\\SMC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|c:\\github\\smc\\sistemamenucafeteria\\modulos\\iuadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|solutionrelative:sistemamenucafeteria\\modulos\\iuadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|c:\\github\\smc\\sistemamenucafeteria\\modulos\\iuusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|solutionrelative:sistemamenucafeteria\\modulos\\iuusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86419B1F-DD75-4113-88BC-9B8540DED0C3}|Datos\\Datos.csproj|c:\\github\\smc\\datos\\vw_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{86419B1F-DD75-4113-88BC-9B8540DED0C3}|Datos\\Datos.csproj|solutionrelative:datos\\vw_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|C:\\GitHub\\SMC\\sistemamenucafeteria\\modulos\\iuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|solutionrelative:sistemamenucafeteria\\modulos\\iuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|C:\\GitHub\\SMC\\negocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BE990D2-E624-46DE-8CA4-381BD14447D5}|Negocio\\Negocio.csproj|solutionrelative:negocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|c:\\github\\smc\\sistemamenucafeteria\\modulos\\iuusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{FFAFA858-73DA-46BC-92D4-10FBB4484F38}|SistemaMenuCafeteria\\SistemaMenuCafeteria.csproj|solutionrelative:sistemamenucafeteria\\modulos\\iuusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 378,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "iuAdministrador.aspx",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx",
-              "RelativeDocumentMoniker": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx",
-              "ToolTip": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx",
-              "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-06-12T05:44:49.745Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 378,
+          "DockedHeight": 150,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "vw_Productos.cs",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\Datos\\vw_Productos.cs",
-              "RelativeDocumentMoniker": "Datos\\vw_Productos.cs",
-              "ToolTip": "C:\\GitHub\\SMC\\Datos\\vw_Productos.cs",
-              "RelativeToolTip": "Datos\\vw_Productos.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T07:09:13.743Z",
+              "Title": "iuUsuario.aspx",
+              "DocumentMoniker": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx",
+              "RelativeDocumentMoniker": "SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx",
+              "ToolTip": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx",
+              "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-22T00:28:03.488Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedHeight": 250,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\Negocio\\Producto.cs",
-              "RelativeDocumentMoniker": "Negocio\\Producto.cs",
-              "ToolTip": "C:\\GitHub\\SMC\\Negocio\\Producto.cs",
-              "RelativeToolTip": "Negocio\\Producto.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAAAGsAAAA3AAAA",
+              "DocumentIndex": 0,
+              "Title": "iuUsuario.aspx.cs",
+              "DocumentMoniker": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx.cs",
+              "RelativeDocumentMoniker": "SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx.cs",
+              "ToolTip": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx.cs",
+              "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuUsuario.aspx.cs",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAAAIsAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T06:58:44.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "iuAdministrador.aspx.cs",
-              "DocumentMoniker": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
-              "RelativeDocumentMoniker": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
-              "ToolTip": "C:\\GitHub\\SMC\\SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
-              "RelativeToolTip": "SistemaMenuCafeteria\\Modulos\\iuAdministrador.aspx.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAABUAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T06:58:26.429Z"
+              "WhenOpened": "2024-06-22T00:09:33.039Z",
+              "EditorCaption": ""
             }
           ]
         }

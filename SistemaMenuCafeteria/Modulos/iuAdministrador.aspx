@@ -31,7 +31,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 1</h4>
-                        <p>Nombre</p>
                         <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia1" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
                         <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia1" runat="server" ID="rfvMenuNombre1" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu1" />
 
@@ -51,7 +50,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Menú del día 2</h4>
-                        <p>Nombre</p>
                         <asp:TextBox CssClass="form-control mb-3" placeholder="Ej: Tacos dorados de papa" Width="100%" runat="server" ID="txtNombreMenuDelDia2" onkeydown="return ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode == 8 || event.keyCode == 46) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))" />
                         <asp:RequiredFieldValidator ControlToValidate="txtNombreMenuDelDia2" runat="server" ID="rfvMenuNombre2" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="Menu2" />
                         <div class="input-group mb-3">
@@ -105,7 +103,7 @@
             </div>
             <asp:GridView runat="server" ID="gvProductos" Visible="true"
                 OnRowDeleting="gvProductos_RowDeleting" OnRowDataBound="gvProductos_RowDataBound"
-                AutoGenerateColumns="false" CssClass="table">
+                AutoGenerateColumns="false" CssClass="table" EmptyDataText="No se encontraron coincidencias">
                 <Columns>
 
                     <asp:TemplateField HeaderText="id" Visible="false">
@@ -128,13 +126,13 @@
 
                     <asp:TemplateField HeaderText="Categoría" Visible="true">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Nombre_Categoria") %>' />
+                            <asp:Label runat="server" ID="lblNombreCategoria" Text='<%# Bind("Nombre_Categoria") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Subcategoría" Visible="true">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblIdProducto" Text='<%# Bind("Nombre_Subcategoria") %>' />
+                            <asp:Label runat="server" ID="lblNombreSubcategoria" Text='<%# Bind("Nombre_Subcategoria") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

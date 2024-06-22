@@ -45,10 +45,6 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
                 BindCategories();
                 BindMenusDelDia();
             }
-            else if (IsPostBack)
-            {
-            
-            }
         }
 
         private bool RightScrollEnabled
@@ -113,7 +109,7 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
         }
         private void BindCategories()
         {
-            int CategoriesPerPage = 3;
+            int CategoriesPerPage = 4;
             var pagedCategories = Categories.GetRange(CurrentPage * CategoriesPerPage, Math.Min(CategoriesPerPage, Categories.Count - (CurrentPage * CategoriesPerPage)));
             CategoryRepeater.DataSource = pagedCategories;
             CategoryRepeater.DataBind();
@@ -140,8 +136,12 @@ namespace SistemaMenuCafeteria.InterfacesDeUsuario
                 subcategoria.PRODUCTOS = _objProducto.GetListaProductosByIdSubCategoria(subcategoria.Id_Subcategoria);
                 Repeater rptProducts = (Repeater)e.Item.FindControl("rptProducts");
                 ViewState["Productos"] = subcategoria.PRODUCTOS;
-                rptProducts.DataSource = ViewState["Productos"] as List<clsPRODUCTOS>;
+                List<clsPRODUCTOS> productosList = ViewState["Productos"] as List<clsPRODUCTOS>;
+                rptProducts.DataSource = productosList;
                 rptProducts.DataBind();
+
+
+                ((HtmlGenericControl)e.Item.FindControl("NombreSubcategoria")).Visible = !(productosList.Count() == 0);
             }
         }
 

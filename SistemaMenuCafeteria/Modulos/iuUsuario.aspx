@@ -319,9 +319,11 @@
             <ItemTemplate>
                 <div class="col-md-12" id="Cat<%# Eval("Id_Categoria") %>">
                     <h2 class="comidas"><%# Eval("Nombre_Categoria") %></h2>
-                    <asp:Repeater ID="rptSubcategories" runat="server" OnItemDataBound="rptSubcategories_ItemDataBound">
+                    <asp:Repeater ID="rptSubcategories" runat="server" OnItemDataBound="rptSubcategories_ItemDataBound" Visible="true">
                         <ItemTemplate>
-                            <h3><%# Eval("Nombre_Subcategoria") %></h3>
+                            <div id="NombreSubcategoria" runat="server">
+                                <h3><%# Eval("Nombre_Subcategoria") %></h3>
+                            </div>
                             <asp:Repeater ID="rptProducts" runat="server" OnItemDataBound="rptProducts_ItemDataBound">
                                 <ItemTemplate>
                                     <div id="Prod<%# Eval("Id_Producto") %>">
