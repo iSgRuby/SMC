@@ -81,7 +81,7 @@
                         <asp:TextBox runat="server" ID="txtPrecioProducto" CssClass="form-control mb-3" placeholder="Precio" />
                         <asp:RequiredFieldValidator ControlToValidate="txtPrecioProducto" runat="server" ID="rfvPrecioProducto" CssClass="text-danger" Display="Dynamic" ErrorMessage="Campo obligatorio" SetFocusOnError="true" ValidationGroup="AgregarProducto" />
 
-                        <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar producto" OnClick="btnAgregarProducto_Click" CssClass="btn btn-primary btn-block offset-4 col-4" ValidationGroup="AgregarProducto" />
+                        <asp:Button runat="server" ID="btnAgregarProducto" Text="Agregar" OnClick="btnAgregarProducto_Click" CssClass="btn btn-primary btn-block offset-4 col-4" ValidationGroup="AgregarProducto" />
                     </div>
                 </div>
             </div>
